@@ -40,7 +40,7 @@ class GetApiController {
         return name+" "+age
     }
 
-    //Object 형태로 return 하면 JSON 형태로 return 된다.
+    //Object mapper 형태로 return 하면 JSON 형태로 return 된다.
     //Kotlin에서는 변수명에 - 을 사용할수 없다.
     @GetMapping("/get-mapping/query-param/object")
     fun queryParamObject(userRequest: UserRequest): UserRequest {

@@ -1,5 +1,6 @@
 package com.example.mvc.controller.get
 
+import com.example.mvc.model.http.UserRequest
 import org.springframework.web.bind.annotation.*
 
 @RestController  // 이 Annotation은 REST API Controller 동작을 설정 한다.
@@ -37,6 +38,21 @@ class GetApiController {
     ): String {
         println("${name} , ${age}")
         return name+" "+age
+    }
+
+    //Object 형태로 return 하면 JSON 형태로 return 된다.
+    //Kotlin에서는 변수명에 - 을 사용할수 없다.
+    @GetMapping("/get-mapping/query-param/object")
+    fun queryParamObject(userRequest: UserRequest): UserRequest {
+        println(userRequest)
+        return userRequest
+    }
+
+    //Map 형태로 return 하면 JSON 형태로 return 된다.
+    @GetMapping("/get-mapping/query-param/map")
+    fun queryParamMap(@RequestParam map: Map<String,Any>): Map<String, Any> {
+        println(map)
+        return map
     }
 
 }
